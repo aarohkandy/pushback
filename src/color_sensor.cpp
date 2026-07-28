@@ -387,8 +387,8 @@ BallColor ColorSensorSystem::readColorFromSensor(pros::Optical* sensor) {
     try {
         double proximity = sensor->get_proximity();
         
-        // Check if ball is present
-        if (proximity > MAX_PROXIMITY_THRESHOLD) {
+        // Check if ball is present (proximity is 0-255; higher = object closer)
+        if (proximity < MAX_PROXIMITY_THRESHOLD) {
             return BallColor::NO_BALL;
         }
         
@@ -422,7 +422,7 @@ bool ColorSensorSystem::isBallPresent(pros::Optical* sensor) {
     
     try {
         double proximity = sensor->get_proximity();
-        return proximity <= MAX_PROXIMITY_THRESHOLD;
+        return proximity >= MAX_PROXIMITY_THRESHOLD;
     } catch (const std::exception& e) {
         return false;
     }

@@ -19,9 +19,8 @@ class IndexerSystem;
 // COLOR SENSOR CONFIGURATION
 // =============================================================================
 
-// Color sensor ports (V5 smart ports)
-#define COLOR_SENSOR_1_PORT     19  // Lower color sensor (entry detection)
-#define COLOR_SENSOR_2_PORT     20  // Upper color sensor (confirmation/direction)
+// Color sensor ports (V5 smart ports) are defined centrally in config.h
+// (COLOR_SENSOR_1_PORT / COLOR_SENSOR_2_PORT). Do not redefine them here.
 
 // Ball color detection thresholds and values
 #define RED_HUE_MIN             0     // Red hue range minimum
@@ -34,7 +33,7 @@ class IndexerSystem;
 
 #define MIN_SATURATION          50    // Minimum saturation for valid color detection
 #define MIN_BRIGHTNESS          30    // Minimum brightness for valid detection
-#define MAX_PROXIMITY_THRESHOLD 100   // Maximum proximity value indicating ball presence
+#define MAX_PROXIMITY_THRESHOLD 100   // Minimum proximity value indicating ball presence (higher = closer)
 
 // Detection timing and confirmation settings
 #define COLOR_DETECTION_DELAY_MS    50    // Delay between sensor readings (ms)
